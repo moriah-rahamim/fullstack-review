@@ -2,7 +2,7 @@
 
  - [X] Draw a diagram of the app with client, server, and DB
  - [X] Draw a schema and complete the Repos schema in `database/index.js`
- - [ ] Use jQuery to send a `POST` to `/repos` when user enters a username into the text field
+ - [X] Use jQuery to send a `POST` to `/repos` when user enters a username into the text field
  - [ ] complete `getReposByUsername` function in `helpers/github.js` (use npm `request` module to fetch a user's github repos)
  - [ ] complete `save` function in `database/index.js`. should save data from github api in the mongo database
  - [ ] complete `POST /repos` endpoint on the express server. Use `getReposByUsername` to fetch the repos, then use the `save` function to store it in the database
