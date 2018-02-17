@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+
 mongoose.connect('mongodb://localhost/fetcher');
 
 let repoSchema = mongoose.Schema({
@@ -17,10 +19,18 @@ let repoSchema = mongoose.Schema({
 
 let Repo = mongoose.model('Repo', repoSchema);
 
-let save = (/* TODO */) => {
-  // TODO: Your code here
-  // This function should save a repo or repos to
-  // the MongoDB
-}
+let save = (repos) => {
+  return new Promise((resolve, reject) => {
+    Repo.insertMany(repos)
+    .then(docs => {
+      console.log(docs);
+      resolve(docs);
+    })
+    .catch(error => {
+      console.error(error);
+      reject(error);
+    });
+  });
+};
 
 module.exports.save = save;
