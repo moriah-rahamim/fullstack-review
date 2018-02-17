@@ -21,6 +21,7 @@ class App extends React.Component {
       contentType: 'application/json',
     })
     .then(function(error, response){
+      console.log(response);
       // TODO: GET request to display updated top 25
     })
     .catch(function(error) {
