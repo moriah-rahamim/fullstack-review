@@ -4,15 +4,15 @@ mongoose.connect('mongodb://localhost/fetcher');
 let repoSchema = mongoose.Schema({
   id: Number,
   name: String,
-  html_url: String, // repository url
+  url: String,
   description: String,
-  created_at: Date,
-  updated_at: Date,
+  created: Date,
+  updated: Date,
 
-  owner_id: Number,
-  owner_login: String, // username
-  avatar_url: String,
-  owner_html_url: String // user profile url
+  userid: Number,
+  username: String,
+  useravatar: String,
+  userprofile: String,
 });
 
 let Repo = mongoose.model('Repo', repoSchema);
