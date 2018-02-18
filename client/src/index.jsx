@@ -19,14 +19,27 @@ class App extends React.Component {
       url: '/repos',
       data: JSON.stringify({username: term}),
       contentType: 'application/json',
-    })
-    .then(function(error, response){
-      console.log(response);
-      // TODO: GET request to display updated top 25
-    })
-    .catch(function(error) {
-      console.warn(error);
+      success: response => {
+        console.log(response);
+        // TODO: GET request to display updated top 25
+      },
+      failure: error => console.error(error),
     });
+  }
+
+  getTop25(numResults, sortBy, direction) {
+    $.ajax({
+      method: 'GET',
+      url: '/repos',
+      success: response => {
+        console.log('inside getTop25', response);
+      },
+      failure: error => console.error(error),
+    });
+  }
+
+  componentDidMount() {
+    this.getTop25(3, 'updated', 'desc');
   }
 
   render () {

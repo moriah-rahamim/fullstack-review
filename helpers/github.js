@@ -40,8 +40,6 @@ let getReposByUsername = (username) => {
       resolve(repos);
     });
   });
-
 }
-getReposByUsername('moriah-rahamim');
 
 module.exports.getReposByUsername = getReposByUsername;
